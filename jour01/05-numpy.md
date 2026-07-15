@@ -75,5 +75,4 @@ image = np.array([ 1 , 200 , 20 , 255 , 190  ])
 image[image < 30] = 0 
 
 image
-
 ```
