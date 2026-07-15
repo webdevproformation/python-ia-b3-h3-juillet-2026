@@ -86,3 +86,17 @@ D # array([0, 2, 4, 6, 8])
 F = np.linspace( 0, 10 , 4 ) # créer un tableau qui contient 4 valeurs réparties manières égale
 F # array([ 0.        ,  3.33333333,  6.66666667, 10.        ])
 ```
+
+# seed et random
+
+```py
+# pour définir donner une valeur fixe à nos valeurs aléatoires
+# nous allons définir une seed 
+np.random.seed( 42 )
+# le calcul de l'alea va être générer en utilisant des fonctions mathématiques
+# lorsque l'on exécute les fonctions qui permettent de générer l'aléa on utilise un chiffre 
+# ce chiffre que l'on appelle la seed (la graine)
+
+X = np.random.randn( 3 )
+X
+```
