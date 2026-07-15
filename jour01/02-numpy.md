@@ -100,3 +100,49 @@ np.random.seed( 42 )
 X = np.random.randn( 3 )
 X
 ```
+
+# méthodes de manipulation (de la forme) de tableau numpy
+
+```py
+- vstack()
+- hstack()
+- concat()
+- ravel()
+- squeeze()
+- reshape()
+```
+
+```py
+
+# reshape permet de changer la forme d'un tableau numpy
+# très pratique notamment pour les tableaux qui ont des dimensions de type
+# (4,) => forcer à avoir la dimension (4,1)
+
+X = np.random.randn(4)
+
+X , X.shape # (array([ 1.52302986, -0.23415337, -0.23413696,  1.57921282]), (4,))
+
+X = X.reshape((X.shape[0],1)) 
+
+X.shape # désormais notre tableau a pour dimensions (4, 1)
+
+#--------
+
+X = np.squeeze(X)
+
+X.shape # retour au dimensions (4,)
+
+
+#-------
+
+# j'ai un tableau numpy avec 2 dimensions (une image noir en blanc)
+# je veux la transformer en un tableau à 1 seulement dimensions
+# dans ce cas il faut utiliser ravel
+
+Y = np.zeros( (5 , 10) )
+Y 
+
+Y_plat = np.ravel(Y)
+Y_plat
+
+```
