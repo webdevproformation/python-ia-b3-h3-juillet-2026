@@ -22,6 +22,4 @@ demi_raton_laveur = raton_laveur[: , moitie_largeur:   ]
 
 demi_raton_laveur[demi_raton_laveur >= 180 ] = 255 
 plt.imshow(demi_raton_laveur)
-
-
 ```
