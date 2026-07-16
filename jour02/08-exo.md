@@ -13,5 +13,14 @@ c    300
 d    400
 e    800
 dtype: int64 
+```
 
+```py
+import pandas as pd
+
+d = {'a': 100, 'b': 200, 'c': 300, 'd': 400, 'e': 800}
+
+s = pd.Series(d)
+
+s
 ```
