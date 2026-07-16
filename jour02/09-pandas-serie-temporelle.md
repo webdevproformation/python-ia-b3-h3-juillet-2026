@@ -28,3 +28,13 @@ etherium.loc["2022-02":"2023-04" ,"close_price_usd"].plot()
 - maitenant que vous avez chargé à la fois bitcoin et etherium 
 - pour vous afficher les deux devises sur la période 2025 sur un 1 seul graphique
 - astuce attention vous devez utiliser la fonction `.merge()` de pandas pour fusionner les deux Dataframe
+
+
+```py
+etherium = pd.read_csv("eth-usd-max.csv" , index_col="event_date" , parse_dates=True)
+bitcoin = pd.read_csv("btc-usd-max.csv" , index_col="event_date" , parse_dates=True)
+
+eth_bit = pd.merge(bitcoin ,etherium , on="event_date" , how="inner" , suffixes=["_bitcoin", "_etherium"]  )
+
+eth_bit.loc["2025", [ "close_price_usd_bitcoin" , "close_price_usd_etherium" ]].plot()
+```
