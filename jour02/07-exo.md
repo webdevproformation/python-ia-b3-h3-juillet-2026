@@ -20,6 +20,20 @@ One Series
 dtype: object
 ```
 
+```py
+import pandas as pd
+
+s1 = pd.Series([
+    ["Red", "Green", "White"],
+    ["Red", "Black"],
+    ["Yellow"] 
+])
+
+s2 = s1.apply(pd.Series).stack().reset_index(drop=True)
+s2
+```
+
+
 # Question 2
 
 Écrivez un programme Pandas pour ajouter des données à une série existante.
@@ -43,4 +57,14 @@ Data Series after adding some data:
 5       500
 6       php
 dtype: object
+```
+
+```py
+import pandas as pd
+
+s1 = pd.Series([ "100" , "200", "Python", "300.12", "400" ])
+
+s2 = pd.concat([ s1 , pd.Series(["500" , "PHP"]) ] , ignore_index=True)
+
+s2
 ```
