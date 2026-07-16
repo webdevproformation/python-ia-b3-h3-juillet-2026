@@ -4,3 +4,10 @@ Séries temporelles transformer la colonne d'index qui par défaut est numérot�
 
 - Bitcoin - https://www.coingecko.com/en/coins/bitcoin/historical_data?start=2010-06-13&end=2026-06-13
 - Etherium - https://www.coingecko.com/en/coins/ethereum/historical_data?start=2015-08-07&end=2026-06-13
+
+---
+
+# Exo 
+
+- Utiliser le fichier qui présente le cours de l'Etherium
+- sur ce fichier vous allez afficher dans un graphique l'évolution du prix de cette devise electronique entre février 2022 et avril 2023
