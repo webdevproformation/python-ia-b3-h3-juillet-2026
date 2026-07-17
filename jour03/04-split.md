@@ -62,3 +62,61 @@ model.score( X_test , y_test )
 - entrainer votre model
 - donner lui un score
 - recherché via `GridSearchCV` quels sont les meilleurs paramètres pour le modèle `KNeighborsClassifier`
+
+
+
+```py
+import numpy as np 
+import pandas as pd 
+
+titanic = pd.read_csv("titanic_dataset.csv")
+
+titanic = titanic.drop(["PassengerId","Name" , "SibSp" , "Parch" , "Ticket" , "Fare"  , "Cabin" , "Embarked" ] , axis=1)
+
+titanic = titanic.dropna(axis=0)
+
+titanic["Sex"] = titanic["Sex"].map({ 'male' : 0 , 'female' : 1 })
+
+y = titanic["Survived"]
+y = y.values.reshape(-1,1)
+
+X = titanic.drop(["Survived"] , axis=1)
+
+X.shape , y.shape
+
+from sklearn.model_selection import train_test_split
+
+X_train, X_test , y_train , y_test = train_test_split( X , y , test_size=0.2 , random_state=42 )
+
+from sklearn.neighbors import KNeighborsClassifier
+
+model = KNeighborsClassifier(n_neighbors=2 , metric='manhattan' )
+
+model.fit(X_train ,y_train  )
+
+score = model.score(X_test , y_test) # 0.7952380952380952
+
+score
+
+
+
+from sklearn.model_selection import GridSearchCV 
+
+param_grid = {
+    'n_neighbors' : np.arange(1, 20),
+    'metric' : [ 'euclidiean' , 'manhattan'  ]
+}
+
+grid = GridSearchCV(
+    KNeighborsClassifier() ,
+    param_grid,
+    cv=5
+)
+
+grid.fit( X_train , y_train )
+
+model = grid.best_estimator_
+
+model.score(X_test , y_test)
+
+```
