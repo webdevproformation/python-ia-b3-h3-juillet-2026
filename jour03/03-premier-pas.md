@@ -42,3 +42,10 @@ prediction = model.predict( X )
 plt.scatter(X , y)
 plt.plot(X , prediction , c="g")
 ```
+
+# exo
+
+- utiliser sur le jeu de données que nous avons créer le model SVR avec une hyperparamètre `C=100`
+- qu'est ce que le model SVR ?? dans scikit learn
+- donner le score de ce modèle ? 
+- pourquoi il est meilleur que celui de modele `LinearRegression` ?
