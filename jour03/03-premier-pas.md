@@ -50,6 +50,8 @@ plt.plot(X , prediction , c="g")
 - donner le score de ce modèle ? 
 - pourquoi il est meilleur que celui de modele `LinearRegression` ?
 
+# correction
+
 ```py
 import numpy as np
 import matplotlib.pyplot as plt 
@@ -74,4 +76,45 @@ prediction = model.predict( X )
 
 plt.scatter(X , y)
 plt.plot(X , prediction , c="g")
+```
+
+## C'est quoi SVR ???
+
+```txt
+L'idée simple
+
+Une régression classique cherche à faire passer une ligne (ou une courbe) au plus près de tous les points.
+
+L'ε-SVR fait quelque chose d'un peu différent :
+
+👉 Il crée une zone de tolérance autour de la ligne prédictive.
+
+Cette zone a une largeur appelée epsilon (ε).
+
+      Point
+        *
+        |
+--------|--------  ← limite supérieure
+================  ← ligne de prédiction
+--------|--------  ← limite inférieure
+
+
+Tant qu'un point est à l'intérieur de cette bande, l'erreur est considérée comme nulle.
+
+Pourquoi faire ça ?
+
+Parce qu'on accepte que les données réelles contiennent un peu de bruit.
+
+Par exemple :
+
+Valeur réelle	Prédiction100	102
+150	148
+
+Une différence de 2 unités peut être négligeable.
+
+L'ε-SVR dit donc :
+
+« Je ne vais pas chercher à corriger les petites erreurs. Je me préoccupe surtout des grosses erreurs. »
+
+Cela évite de sur-apprendre les données (overfitting).
 ```
