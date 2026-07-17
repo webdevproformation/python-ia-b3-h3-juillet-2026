@@ -49,3 +49,29 @@ plt.plot(X , prediction , c="g")
 - qu'est ce que le model SVR ?? dans scikit learn
 - donner le score de ce modèle ? 
 - pourquoi il est meilleur que celui de modele `LinearRegression` ?
+
+```py
+import numpy as np
+import matplotlib.pyplot as plt 
+from sklearn.svm import SVR
+
+np.random.seed(42)
+
+m = 100
+
+X = np.linspace(0,10, 100).reshape(m, 1)
+y = X + np.random.randn(m, 1)
+
+model = SVR(C=100)
+
+model.fit(X,y)
+
+score = model.score(X,y)
+
+print(score)
+
+prediction = model.predict( X )
+
+plt.scatter(X , y)
+plt.plot(X , prediction , c="g")
+```
