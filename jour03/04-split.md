@@ -120,3 +120,12 @@ model = grid.best_estimator_
 model.score(X_test , y_test)
 
 ```
+
+# last exo 
+
+En utilisant le dataset du iris et en utilisant le modèle KNeighborsClassifier
+
+- séparer votre dataset en train et test
+- déterminer quelles sont les meilleures valeurs pour les meta paramètres de l’estimateur en utilisant GridSearchCV
+- déterminer les erreurs que génére le model entrainé avec `confusion_matrix`
+
