@@ -40,7 +40,7 @@ cross_val_score(
 )
 
 model = GridSearchCV(
-    KNeighborsClassifier(),,
+    KNeighborsClassifier(),
     {
         'C' : np.arange(0, 200 ),
         'metric' : [ 'euclidean' , 'manhattan' ]
@@ -53,3 +53,12 @@ meilleur_model = KNeighborsClassifier(c:181 , metric: 'euclidean')
 
 model.score( X_test , y_test )
 ```
+
+# exo 
+
+- en utilisant le dataset titanic 
+- et en utilisation le model KNeighborsClassifier
+- faire un split entre les données de test / donnée de train
+- entrainer votre model
+- donner lui un score
+- recherché via `GridSearchCV` quels sont les meilleurs paramètres pour le modèle `KNeighborsClassifier`
