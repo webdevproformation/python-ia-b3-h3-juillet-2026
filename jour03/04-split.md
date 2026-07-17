@@ -123,9 +123,51 @@ model.score(X_test , y_test)
 
 # last exo 
 
-En utilisant le dataset du iris et en utilisant le modèle KNeighborsClassifier
+En utilisant le dataset des iris et en utilisant le modèle KNeighborsClassifier
 
 - séparer votre dataset en train et test
 - déterminer quelles sont les meilleures valeurs pour les meta paramètres de l’estimateur en utilisant GridSearchCV
 - déterminer les erreurs que génére le model entrainé avec `confusion_matrix`
 
+```py
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split , GridSearchCV
+
+fleurs = load_iris()
+
+X = fleurs.data 
+y = fleurs.target 
+
+X_train , X_test , y_train , y_test = train_test_split( X, y , test_size=0.2 )
+
+from sklearn.neighbors import KNeighborsClassifier
+
+param_grid = {
+    'n_neighbors' : np.arange(1, 40),
+    'metric' : [ 'euclidiean' , 'manhattan'  ]
+}
+
+grid = GridSearchCV(
+    KNeighborsClassifier() ,
+    param_grid,
+    cv=5
+)
+
+grid.fit( X_train, y_train)
+
+model = grid.best_estimator_
+
+score = model.score(X_test , y_test)
+
+from sklearn.metrics import confusion_matrix , ConfusionMatrixDisplay
+import matplotlib.pyplot as plt 
+
+result = confusion_matrix( y_test , model.predict( X_test ) )
+
+print(result)
+
+disp = ConfusionMatrixDisplay( confusion_matrix=result , display_labels=model.classes_ )
+
+disp.plot()
+
+```
