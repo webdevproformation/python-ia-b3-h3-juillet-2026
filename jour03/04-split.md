@@ -1,5 +1,5 @@
 
-
+# split
 
 ```py
 from sklearn.model_selection import train_test_split
@@ -23,4 +23,33 @@ model.fit(X_train,y_train)
 
 # phase d'évaluation
 score = model.score(X_test,y_test)
+```
+
+# recherche des meilleurs hyperparamètres pour votre model
+
+```py
+from sklearn.model_selection import cross_val_score
+from sklearn.neighbors import KNeighborsClassifier
+
+cross_val_score(
+    KNeighborsClassifier(),
+    X_train ,
+    y_train ,
+    cv=5 , # cross validation le nombre de découpes pour faire les comparaisons
+    scoring="accuracy"
+)
+
+model = GridSearchCV(
+    KNeighborsClassifier(),,
+    {
+        'C' : np.arange(0, 200 ),
+        'metric' : [ 'euclidean' , 'manhattan' ]
+    }                 
+)
+
+meilleur_model = model.best_estimator_
+
+meilleur_model = KNeighborsClassifier(c:181 , metric: 'euclidean')
+
+model.score( X_test , y_test )
 ```
